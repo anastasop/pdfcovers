@@ -4,6 +4,14 @@ Pdfcovers takes a list of pdf files and generates a pdf containing the first pag
 
 It can help you cope with archives, usually external disks, which contains pdfs with cryptic names like _TR023213.pdf download.pdf paper.pdf MIT-LCS-1021.pdf_ etc and you no longer remember how you acquired each one. Pdfcovers also adds a text annotation to each page with the full path name of the origin pdf so that you can retrieve it.
 
+## Installation
+
+Pdfcovers is written in Go and tested with go1.12. It can be easily installed with the go tool
+
+```
+go get github.com/anastasop/pdfcovers
+```
+
 ## Usage
 
 ```
@@ -21,21 +29,21 @@ The `-ln` optional flag is the [unidoc](https://unidoc.io/) customer name for th
 ## Examples
 
 ```
-\# extract the covers of all pdfs in the current directory
+# extract the covers of all pdfs in the current directory
 pdfcovers -o index.pdf *.pdf
 
-\# extract the covers of all pdfs in the current directory
-\# and redirect the output to a display program
+# extract the covers of all pdfs in the current directory
+# and redirect the output to a display program
 pdfcovers *.pdf | 9 page
 
-\# extract the covers of all pdfs in the current directory tree
+# extract the covers of all pdfs in the current directory tree
 find . -name *.pdf | pdfcovers -s -o index.pdf
 
-\# extract the covers of all pdfs in the current directory tree
-\# and add a cover page to the outpus
+# extract the covers of all pdfs in the current directory tree
+# and add a cover page to the outpus
 find . -name *.pdf | pdfcovers -s -o index.pdf cover-page.pdf
 
-\# Another way to extract the covers without the -s flag
+# Another way to extract the covers without the -s flag
 find . -name *.pdf -exec pdfcovers -o index.pdf '{}' '+'
 ```
 
